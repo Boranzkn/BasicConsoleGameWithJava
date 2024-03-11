@@ -1,11 +1,14 @@
 package Heros;
 
+import Locations.LevelLocations;
+
 public abstract class Hero {
 
     private int ID;
     private int damage;
     private int health;
     private int money;
+    private LevelLocations location;
     private int locationID = 1;
     private int levelID = 1;
 
@@ -45,9 +48,7 @@ public abstract class Hero {
         return health;
     }
 
-    public void setHealth(int health) {
-        this.health = health;
-    }
+    public void setHealth(int health) { this.health = health; }
 
     public int getMoney() {
         return money;
@@ -60,4 +61,8 @@ public abstract class Hero {
     public void addMoney(int value){
         setMoney(getMoney() + value);
     }
+
+    public LevelLocations getLocation() { return location; }
+
+    public void setLocation(LevelLocations location) { this.location = location; }
 }

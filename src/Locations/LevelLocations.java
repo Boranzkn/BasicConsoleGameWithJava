@@ -113,7 +113,7 @@ public abstract class LevelLocations {
 
                 getPlayer().setHealth((getPlayer().getHealth()) - (getEnemies().get(i).getDamage()));
 
-                if (getPlayer().getHealth() == 0){
+                if (getPlayer().getHealth() <= 0){
                     System.out.println(getEnemy().getName() + " hit you " + getEnemies().get(i).getDamage() + " damage and you died!!");
                     System.out.println("GAME OVER");
                     System.exit(0);

@@ -1,10 +1,5 @@
-import Heros.Hero;
-import Heros.Archer;
-import Heros.Knight;
-import Heros.Samurai;
-import Locations.Cave;
-import Locations.Forest;
-import Locations.River;
+import Heros.*;
+import Locations.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -14,6 +9,8 @@ public class Main {
     static Cave cave = new Cave();
     static Forest forest = new Forest();
     static River river = new River();
+    static SafeHouse house = new SafeHouse();
+    static Shop shop = new Shop();
     static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
 
@@ -37,7 +34,8 @@ public class Main {
     private static void sendPlayerToLocation() {
         switch (player.getLocationID()){
             case 1:
-                //sonra doldur buraları safe house a göre
+                player.setHealth(player.getHealth() + 10);
+                house.info();
                 break;
             case 2:
                 //sonra doldur buraları shop a göre
@@ -45,16 +43,23 @@ public class Main {
             case 3:
                 cave.levelInfo();
                 cave.battle();
+                player.setLevelID(2);
+                player.setLocation(cave);
                 break;
             case 4:
                 forest.levelInfo();
                 forest.battle();
+                player.setLevelID(3);
+                player.setLocation(forest);
                 break;
             case 5:
                 river.levelInfo();
                 river.battle();
+                player.setLocation(river);
                 break;
         }
+
+        afterBattle();
     }
 
     private static int askAndCheckLocation() {
@@ -157,5 +162,17 @@ public class Main {
         cave.setPlayer(player);
         forest.setPlayer(player);
         river.setPlayer(player);
+    }
+
+    private static void afterBattle(){
+        System.out.println("You are now at " + player.getLocation().getName() + ".");
+        locationInfo();
+        levelInfo();
+
+        System.out.println("Time to choose where you want to go : ");
+
+        player.setLocationID(askAndCheckLocation());
+
+        sendPlayerToLocation();
     }
 }
