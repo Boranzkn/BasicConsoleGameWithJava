@@ -1,5 +1,5 @@
-import Heros.Archer;
 import Heros.Hero;
+import Heros.Archer;
 import Heros.Knight;
 import Heros.Samurai;
 import Locations.Cave;
