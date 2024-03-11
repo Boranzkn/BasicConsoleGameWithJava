@@ -18,11 +18,6 @@ public class Forest extends LevelLocations{
     }
 
     @Override
-    public void battle() {
-
-    }
-
-    @Override
     public ArrayList<Enemy> makeEnemies() {
         ArrayList<Enemy> enemies = new ArrayList<>();
         for (int i = 1; i <= getEnemyNum(); i++) enemies.add(new Vampire());

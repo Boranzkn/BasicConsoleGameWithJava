@@ -1,6 +1,5 @@
 package Locations;
 
-import Enemys.Bear;
 import Enemys.Enemy;
 import Enemys.Zombie;
 
@@ -21,7 +20,7 @@ public class Cave extends LevelLocations{
     @Override
     public ArrayList<Enemy> makeEnemies() {
         ArrayList<Enemy> enemies = new ArrayList<>();
-        for (int i = 1; i <= getEnemyNum(); i++) enemies.add(new Bear());
+        for (int i = 1; i <= getEnemyNum(); i++) enemies.add(new Zombie());
         return enemies;
     }
 }
