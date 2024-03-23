@@ -5,6 +5,7 @@ public class Knight   extends Hero {
         setID(3);
         setDamage(8);
         setHealth(24);
+        setMaxHealth(24);
         setMoney(5);
     }
 }

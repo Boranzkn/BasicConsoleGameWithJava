@@ -5,6 +5,7 @@ public class Archer   extends Hero {
         setID(2);
         setDamage(7);
         setHealth(18);
+        setMaxHealth(18);
         setMoney(20);
     }
 }

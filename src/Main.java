@@ -34,11 +34,15 @@ public class Main {
     private static void sendPlayerToLocation() {
         switch (player.getLocationID()){
             case 1:
-                player.setHealth(player.getHealth() + 10);
+                house.setPlayerHealth();
                 house.info();
+                player.setLocationID(1);
+                player.setLocation(house);
                 break;
             case 2:
-                //sonra doldur buraları shop a göre
+                shop.info();
+                player.setLocationID(2);
+                player.setLocation(shop);
                 break;
             case 3:
                 cave.levelInfo();
@@ -131,9 +135,10 @@ public class Main {
 
         while (flag){
 
-            System.out.println( "1- Samurai (damage:5 , health:21 , starting money:15)" +
-                                "\n2- Archer (damage:7 , health:18 , starting money:20)" +
-                                "\n3- Knight (damage:8 , health:24 , starting money:5)");
+            System.out.println("""
+                    1- Samurai (damage:5 , health:21 , starting money:15)
+                    2- Archer (damage:7 , health:18 , starting money:20)
+                    3- Knight (damage:8 , health:24 , starting money:5)""");
             System.out.println("Which hero do you want to play with : ");
             int heroID = input.nextInt();
 
@@ -162,6 +167,8 @@ public class Main {
         cave.setPlayer(player);
         forest.setPlayer(player);
         river.setPlayer(player);
+        house.setPlayer(player);
+        shop.setPlayer(player);
     }
 
     private static void afterBattle(){
